@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!--TODO: Add CSS links-->
+
+    <!-- CSS -->
+    <link href="styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="styles/kendo.default.min.css" rel="stylesheet" />    
+    <link href="styles/kendo.mobile.all.min.css" rel="stylesheet" />
+
+    <link href="styles/kendo.bootstrap.mobile.css" rel="stylesheet" />
+    <link href="styles/kendo.blueopal.mobile.css" rel="stylesheet" />
+    <link href="styles/kendo.forms.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div id="welcome" data-role="view" data-layout="default" data-title="Welcome" class="buttonAppearance">
+        <h1>DropDownList Demo</h1>
+        <p>
+        Kendo Drop Down List View Demo
+        </p>
+
+        <br />
+        <br />
+      <select id="sizes" class=".k-dropdown" >
+        <option>S - 6 3/4"</option>
+        <option>M - 7 1/4"</option>
+        <option>L - 7 1/8"</option>
+        <option>XL - 7 5/8"</option>
+      </select>
+
+      <p>
+        <a href="#list" class="" id="dropdownreflocal" data-role="button" >KendoDropDown Localview</a>
+      </p>
+      <p>
+        <a href="views/dropdownview.html" class="" id="dropdownref" data-role="button" >KendoDropDown View</a>
+      <p>
+    </div>
+
+    <div id="list" data-role="view" data-layout="default">
+      <select id="churchselect" class=".k-dropdown" >
+        <option>S - 6 3/4"</option>
+        <option>M - 7 1/4"</option>
+        <option>L - 7 1/8"</option>
+        <option>XL - 7 5/8"</option>
+      </select>
+      <script>
+        $("#churchselect").kendoDropdownList();
+      </script>
+    </div>
+
+    <section data-role="layout" data-id="default">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title">My View Title</span>
+            </div>
+        </header>
+        <!--View content will render here-->
+        <footer data-role="footer">
+            <div data-role="tabstrip">
+                <a href="#welcome">Home</a>
+                <a href="#list">DropDownList LocalView</a>
+                <a href="views/dropdownview.html">DropDownList View</a>
+            </div>
+        </footer>
+    </section>
+
+    <section data-role="layout" data-id="popup-layout">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title">My View Title</span>
+            </div>
+        </header>
+        <!--View content will render here-->
+    </section>
+
+    <style>
+        #welcome .km-content
+        {
+          //background-color: blue;
+          //background-color: rgb(247, 247, 255);
+        }
+        #welcome h2
+        {
+          text-align: center;
+          margin-top: 10%;
+        }
+        #dropdownref, #dropdownreflocal
+        {
+          margin-left: 5%;
+        }
+    </style>
+
+    <!--TODO: Add JavaScript referneces-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/kendo.ui.core.min.js"></script>
+
+    <script>
+      // Add a default transition for all views, to get a native
+      // feel
+      var app = new kendo.mobile.Application( $(document.body),{
+        transition:'slide'
+      });
+
+      $('#sizes').kendoDropDownList();
+      $('#churchselect').kendoDropDownList();
+
+    </script>
+
+</body>
+</html>

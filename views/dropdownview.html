@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drop Down List View</title>
+</head>
+<body>
+  <div id="dropdownview" data-role="view" data-layout="default" data-title="Drop Down List">
+
+        <div class="container" >
+          <div class="appname" >
+            <h1>Drop Down List</h1>
+          </div>
+
+          <form action="#" id="form-dropdownview">
+            <ul>
+              <li>
+
+
+              <input id="dropdownlist" />
+
+              </li>
+              <li>
+              <input id="color" style="width: 400px"/>
+
+              </li>
+              <li>
+              <select id="churchselect" class=".k-dropdown" >
+                <option>S - 6 3/4"</option>
+                <option>M - 7 1/4"</option>
+                <option>L - 7 1/8"</option>
+                <option>XL - 7 5/8"</option>
+              </select>
+              </li>
+              <li>
+              <div>
+                <span id='my-list'></span>
+              </div>
+              </li>
+
+              <li class="status">
+              </li>
+
+            </ul>
+          </form>
+        </div> <!-- /container -->
+      </div> <!-- /view -->
+
+      <style>
+
+        .appname
+        {
+          margin: 0 auto;
+          text-align: center;
+        }
+        .appname h1
+        {
+          margin-bottom: .01em;
+        }
+
+        .container
+        {
+          margin: 0 auto;
+        }
+
+
+        #dropdownview .km-content
+        {
+          //background-color: blue;
+          //background-color: rgb(247, 247, 255);
+        }
+
+        #form-dropdownview {
+          width: 320px;
+          height: 568px;
+          margin: 0 auto;
+          padding: 10px ;
+        }
+
+        #form-dropdownview h3 {
+          text-align: center;
+          font-weight: normal;
+          font-size: 1.4em;
+          margin: 15% /*top*/ 0 /*rt*/  10% /*btm*/ 0 /*lt*/;
+          padding: 0;
+        }
+
+        #form-dropdownview ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+        #form-dropdownview li {
+          margin: 25px 0 0 15%;
+        }
+
+        .accept, .status {
+          padding-left: 90px;
+        }
+
+        .valid {
+          color: green;
+        }
+
+        .invalid {
+          color: red;
+        }
+        span.k-tooltip {
+          margin-left: 6px;
+        }
+      </style>
+
+      <script>
+        // ----- #my-list
+
+        $("#my-list").kendoDropDownList({
+          width: '6em',
+          optionLabel: 'Method...',
+          dataTextField: 'label',
+          dataSource: [
+          {
+            label: 'Method 1',
+            label: 'Method 2'
+          }
+          ],
+          select: function () { alert('select') },
+          change: function () { alert('change') },
+        });
+
+        // $("#my-list").data('kendoDropDownList').select(1);
+        //$("#my-list").data('kendoDropDownList').trigger("change");
+        // ----- /#my-list
+
+
+        // ----- #color
+        var data2 = [
+        { text: "Black", value: "1" },
+        { text: "Orange", value: "2" },
+        { text: "Grey", value: "3" }
+        ];
+
+        // create DropDownList from input HTML element
+        $("#color").kendoDropDownList({
+          dataTextField: "text",
+          dataValueField: "value",
+          dataSource: data2,
+          index: 0,
+          change: onChange,
+          height: 100
+        });
+
+        function onChange()
+        {
+          // do nothing; 
+        }
+        // ----- /#color
+
+        // ----- #dropdownlist
+        var data = ["One", "Two"];
+        $("#dropdownlist").kendoDropDownList({
+          dataSource: data
+        });
+        // ----- /#dropdownlist
+
+        $("#churchselect").kendoDropDownList();
+
+        //$('select').kendoDropDownList();
+
+      </script>
+
+
+    </body>
+  </html>
